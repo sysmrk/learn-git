@@ -89,11 +89,21 @@ or
 git fetch              
 git merge
 
+switch between branch
+first, where are you? git branch
+new change branch, git chackout feature-2
 
+ 
 for rebase
 git rebase -i HEAD^^
 
-test
+for merge
+git merge feature-2
+
+
+for select a commit and merge (chery-pick)
+git log --oneline --graph --all --- and cp commit id
+git chery-pick 6885a4f
 
 
 
