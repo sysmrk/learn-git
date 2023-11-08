@@ -1,0 +1,125 @@
+apt install git
+create a dir: mkdir myproject
+cd myproject
+git init
+new we can create project file like test1.txt
+git status
+git add test1.txt
+git commit -m "info about this commit"
+git status
+
+now edit content of test1.txt
+you can see what change with "git diff"
+
+you can get a project from repository with:
+git clone https://github.com/htop-dev/htop.git
+
+you can ignore and keep private some file like any log file or .env file
+create a file by this name: .gitignore
+nano .gitignore
+write *.log  or  .env
+git add .gitignore
+
+
+you can hold a file in stash
+in project create a file like test.txt
+git add test.txt
+git stash    (for untrack file you can use "git stash -u" or for all file "git stash -a")
+git log
+git stash show
+git status
+
+and for get back from stash
+git stash pop stash@{0}
+git status
+
+
+adit a file like main.txt
+git diff (or git diff HEAD)
+for see diff from a step back "git diff^"
+2 step back "git diff^^" (git diff^^^, git diff~3 main.txt)
+
+
+git log
+git log --oneline
+git log --oneline --graph
+
+for chack all commit "git blame main.txt"
+
+for see all tags "git tag"
+for set tag for old commit:
+git log --oneline
+git tag V1.0 fd5d26b
+
+
+to add a change in last commit:
+nano main.txt and change content
+git add main.txt
+git commit --amend -m "new edit"
+
+for clean test file:
+git clean
+-n: show what file would delete
+-d: show what file would delete
+-f:force to delete
+-i:ask before delete
+-x: delete .gitignore files
+example: git clean -idx
+
+
+for step back a commit:
+git log --oneline
+git revert 718e492
+
+how add your system to github
+
+ssh-keygen
+cat and cp .ssh/id_rsa.pub to github
+go to root dir
+cd .ssh
+ssh-add id_rsa (if you get error= ssh-agent -s --- eval $( ssh-agent -s ) --- ssh-add id_rsa)
+
+for push files
+git remote add origin https://github.com/sysmrk/learn-git.git
+git push -u origin main
+
+for sync remote to local
+git pull
+or
+git fetch              
+git merge
+
+
+for rebase
+git rebase -i HEAD^^
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
