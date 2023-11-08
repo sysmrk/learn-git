@@ -90,25 +90,13 @@ git fetch
 git merge
 
 
+create a new branch
 
+to see all branch: git branch
+to create a new branch: git checkout -b feature-1
+to push a new file to new branch: git push - u origin feature-1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+and for switch again to master: git checkout master
 
 
 
