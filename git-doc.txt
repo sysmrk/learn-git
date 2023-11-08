@@ -90,7 +90,8 @@ git fetch
 git merge
 
 
-
+for rebase
+git rebase -i HEAD^^
 
 
 
