@@ -83,10 +83,11 @@ for push files
 git remote add origin https://github.com/sysmrk/learn-git.git
 git push -u origin main
 
-git fetch (or git pull)
-
-
-
+for sync remote to local
+git pull
+or
+git fetch              
+git merge
 
 
 
