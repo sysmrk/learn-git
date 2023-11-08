@@ -52,8 +52,38 @@ git log --oneline
 git tag V1.0 fd5d26b
 
 
+to add a change in last commit:
+nano main.txt and change content
+git add main.txt
+git commit --amend -m "new edit"
+
+for clean test file:
+git clean
+-n: show what file would delete
+-d: show what file would delete
+-f:force to delete
+-i:ask before delete
+-x: delete .gitignore files
+example: git clean -idx
 
 
+for step back a commit:
+git log --oneline
+git revert 718e492
+
+how add your system to github
+
+ssh-keygen
+cat and cp .ssh/id_rsa.pub to github
+go to root dir
+cd .ssh
+ssh-add id_rsa (if you get error= ssh-agent -s --- eval $( ssh-agent -s ) --- ssh-add id_rsa)
+
+for push files
+git remote add origin https://github.com/sysmrk/learn-git.git
+git push -u origin main
+
+git fetch (or git pull)
 
 
 
