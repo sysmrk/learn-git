@@ -9,7 +9,7 @@
 - PostgreSQL is internal-only; no host port binding.
 - The Metabase connection to the application database uses `avm_reader` with SELECT on reporting views only.
 - Dashboard content is hidden behind Metabase login; no anonymous/public links are provisioned.
-- Python worker runs as an unprivileged UID on a read-only filesystem with `no-new-privileges`.
+- Python worker runs as the host installer’s unprivileged UID/GID (recorded in `.env`), enabling access to the owner-only 0600 token without opening world-read permissions. Its filesystem is read-only with `no-new-privileges`.
 - Demo advisories use conspicuously fake CVE identifiers and are never emailed.
 - Upstream timeouts and collection errors preserve the existing inventory, rather than deleting assets due to partial reads.
 
