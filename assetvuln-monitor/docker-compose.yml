@@ -23,6 +23,8 @@ services:
     security_opt: [no-new-privileges:true]
 
   worker:
+    # Match the host file owner so the unprivileged process can read mode-0600 token/config.
+    user: "${HOST_UID:-1000}:${HOST_GID:-1000}"
     build:
       context: .
       dockerfile: docker/Dockerfile
@@ -104,8 +106,6 @@ services:
       METABASE_ADMIN_EMAIL: ${METABASE_ADMIN_EMAIL:-admin@example.local}
       METABASE_ADMIN_PASSWORD: ${METABASE_ADMIN_PASSWORD:?Run ./install.sh first}
       METABASE_INTERNAL_URL: http://metabase:3000
-    volumes:
-      - ./config/application.yaml:/opt/avm/config/application.yaml:ro
     depends_on:
       postgres: {condition: service_healthy}
       worker: {condition: service_healthy}
