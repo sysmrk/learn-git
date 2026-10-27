@@ -43,6 +43,8 @@ fi
 if [[ ! -s .env ]]; then
   cat > .env <<ENV
 # PRIVATE GENERATED CREDENTIALS. Keep chmod 600 and NEVER upload this file.
+HOST_UID=$(id -u)
+HOST_GID=$(id -g)
 POSTGRES_PASSWORD=$(openssl rand -hex 30)
 APP_DB_PASSWORD=$(openssl rand -hex 30)
 REPORT_DB_PASSWORD=$(openssl rand -hex 30)
@@ -54,7 +56,7 @@ HTTPS_PORT=8443
 PUBLIC_URL=https://localhost:8443
 ENV
 fi
-chmod 600 .env secrets/manageengine_token
+chmod 600 .env secrets/manageengine_token config/application.yaml
 if [[ ! -s secrets/tls/tls.key || ! -s secrets/tls/tls.crt ]]; then
   echo 'Generating temporary TLS certificate for localhost (browser warning is expected)...'
   openssl req -x509 -nodes -newkey rsa:3072 -sha256 -days 365 \
