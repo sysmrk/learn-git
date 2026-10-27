@@ -1,7 +1,0 @@
-.git
-.env
-secrets
-__pycache__
-.pytest_cache
-config/application.yaml
-*.pyc
